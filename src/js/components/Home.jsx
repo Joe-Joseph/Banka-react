@@ -17,7 +17,7 @@ class Home extends Component {
                     </div>
                 </div> 
   
-                <div class="right-side">
+                <div className="right-side">
                     <div id="photo">
                         <img src={onComputer} />
                     </div>
