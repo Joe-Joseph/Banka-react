@@ -1,52 +1,52 @@
 import React, { Component } from "react";
-import axios from 'axios';
 import Input from './Input.jsx';
+import { connect } from 'react-redux';
+import { loginUser } from '../actions/postAction';
+import signupImage from '../../images/signupImage.jpg';
 
 class Login extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
+  state = {
       user: {
         email: '',
         password:''
-      },
-      errors: {}
-    }
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+      }
   }
-  handleSubmit (e) {
-    e.preventDefault();
-    const user = this.state.user
-      axios.post('https://banka-c-3-db.herokuapp.com/api/v2/auth/signin', user)
-      .then(result => {
-      const jwt = result.data.data.token;
-      localStorage.setItem('token', jwt);
-      this.props.history.push('/')})
-      .catch (err => {
-        const errors = err.response.data.error;
-        this.setState({errors})
-    })
-}
-  handleChange(e) {
+
+  handleChange = (e) => {
     const user = {...this.state.user};
     user[e.target.name] = e.target.value
     this.setState({user})
   }
+
+  handleSubmit = async(e) => {
+    e.preventDefault();
+    const user = this.state.user
+    await this.props.loginUser(user)
+    if(this.props.newErrors.newErrors) {
+    }else {
+      console.log('User Data', this.props.newUser.token)
+      localStorage.setItem('token', this.props.newUser.token);
+      this.props.history.push('/create-account')}
+ }
+
   render() {
     return(
       <React.Fragment>
         <div className="row mt-5">
           <div className="col-md-4 offset-md-1">
-          {Object.entries(this.state.errors).length > 0 && <div className="alert alert-danger">{this.state.errors}</div>}
-            <form onSubmit = {this.handleSubmit}>
+          <div className = "imgClass">
+              <img src = {signupImage}
+              style = {{width: 350, height: 200, position: 'absolute', top: 0, left: 600}} />
+            </div>
+            {this.props.newErrors.newErrors && <div className="alert alert-danger">{this.props.newErrors.newErrors}</div>}
+            <form onSubmit={this.handleSubmit}>
               <Input 
                 type = "text" 
                 name="email"
-                text="email"
+                text="Email"
                 className="form-control" 
                 id="email"
-                label="email"
+                label="Email"
                 value = {this.state.user.email} 
                 onChange={this.handleChange}/>
 
@@ -56,7 +56,7 @@ class Login extends Component {
                 text="Password"
                 className="form-control" 
                 id="password"
-                label="password"
+                label="Password"
                 value = {this.state.user.password} 
                 onChange={this.handleChange}/>
 
@@ -70,4 +70,9 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+  newUser: state.newUser.newUser,
+  newErrors: state.newErrors
+})
+
+export default connect(mapStateToProps, {loginUser})(Login);
