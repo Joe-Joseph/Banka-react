@@ -1,0 +1,136 @@
+.body-container {
+    width: 70%;
+    margin: auto
+}
+.intro {
+    background-color: #061161;
+    width: 40%;
+    top: 56px;
+    position: fixed;
+    left: 170px;
+    color: white;
+    bottom: 0;
+}
+
+.intro p {
+    font-size: 18px;
+    padding-bottom: 20px;
+    line-height: 1.5;
+}
+
+#welcome {
+    padding-top: 280px;
+    padding-left: 30px;
+}
+
+#welcome p{
+    width: 90%
+}
+
+#welcome button{
+    background-image: linear-gradient(-90deg, #061161, #780206);
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+}
+
+.right-side{
+    width: 40%;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    top:74px;
+}
+
+.right-side img{
+    width: 100%;
+    height: 100%;
+}
+
+#photo {
+    width: 40%;
+    top: 56px;
+    position: fixed;
+    right: 170px;
+    bottom: 0;
+}
+
+.color-it {
+    background-image: linear-gradient(-90deg, #061161, #780206);
+    width: 100% 
+}
+
+.create-account-form {
+    position: absolute;
+    right: 520px;
+    top: 240px;
+    width: 30%;
+    height: 25%;
+    background: white;
+    box-shadow: 0 4px 4px #ccc;
+    border-radius: 8px;
+}
+
+#create-account h2 {
+    background-color: #3c0935;
+    margin-top: 0;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 18px;
+}
+
+#create-account .inputBox select {
+    width: 85%;
+    margin-left: 30px;
+    top: 85px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #061161;
+    margin-bottom: 7px;
+    outline: none;
+    border: 1px solid grey;
+    position: absolute;
+}
+
+#create-account button{
+    background: linear-gradient(-90deg, #061161, #780206);
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    border-radius: 3px;
+    top: 120px;
+    left: 30px;
+    padding: 10px 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: #fff;
+    width: 86%;
+    outline: none;
+    position: absolute;
+}
+
+.inputBox p {
+    position: absolute;
+    left: 35px;
+    top: 60px
+}
+
+.messages {
+    position: absolute;
+    left: 540px;
+    width: 60%;
+    box-shadow: 0 4px 4px #ccc;
+    background: #038e03c7;
+    padding: 10px;
+    color: white;
+    border-radius: 5px
+}

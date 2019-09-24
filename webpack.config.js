@@ -33,14 +33,22 @@ module.exports = {
           }
         ]
       },
+      {    
+        test: /\.scss$/,     
+        use: [
+          'style-loader',      
+          'css-loader',
+          'sass-loader'
+        ],
+      },
       {
-        test: /\.css$/,
+        test: /\.(jpg|png|svg)$/,
         use: [
           {
-            loader: "css-loader"
+            loader: "url-loader"
           }
         ]
-      }
+  }
     ]
   },
   plugins: [
@@ -49,4 +57,5 @@ module.exports = {
       filename: "./index.html"
     })
   ]
+
 };
